@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "siniestro-scrapy"
+version = "0.1.0"
+description = "Raspaje de datos de siniestros viales a partir de reportajes periodísticos."
+authors = ["Felipe Sodré <felipe.b4rros@gmail.com>"]
+readme = "README.md"
+packages = [{include = "siniestro_scrapy"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
