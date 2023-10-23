@@ -4,7 +4,7 @@
 name = "black"
 version = "23.10.0"
 description = "The uncompromising code formatter."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.8"
 files = [
@@ -47,7 +47,7 @@ uvloop = ["uvloop (>=0.15.2)"]
 name = "click"
 version = "8.1.7"
 description = "Composable command line interface toolkit"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -62,7 +62,7 @@ colorama = {version = "*", markers = "platform_system == \"Windows\""}
 name = "colorama"
 version = "0.4.6"
 description = "Cross-platform colored terminal text."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
 files = [
@@ -74,7 +74,7 @@ files = [
 name = "exceptiongroup"
 version = "1.1.3"
 description = "Backport of PEP 654 (exception groups)"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -89,7 +89,7 @@ test = ["pytest (>=6)"]
 name = "iniconfig"
 version = "2.0.0"
 description = "brain-dead simple config-ini parsing"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -101,7 +101,7 @@ files = [
 name = "isort"
 version = "5.12.0"
 description = "A Python utility / library to sort Python imports."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.8.0"
 files = [
@@ -119,7 +119,7 @@ requirements-deprecated-finder = ["pip-api", "pipreqs"]
 name = "mypy-extensions"
 version = "1.0.0"
 description = "Type system extensions for programs checked with the mypy type checker."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5"
 files = [
@@ -131,7 +131,7 @@ files = [
 name = "packaging"
 version = "23.2"
 description = "Core utilities for Python packages"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -143,7 +143,7 @@ files = [
 name = "pathspec"
 version = "0.11.2"
 description = "Utility library for gitignore style pattern matching of file paths."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -155,7 +155,7 @@ files = [
 name = "platformdirs"
 version = "3.11.0"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -171,7 +171,7 @@ test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=7.4)", "pytest-co
 name = "pluggy"
 version = "1.3.0"
 description = "plugin and hook calling mechanisms for python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.8"
 files = [
@@ -187,7 +187,7 @@ testing = ["pytest", "pytest-benchmark"]
 name = "pytest"
 version = "7.4.2"
 description = "pytest: simple powerful testing with Python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -210,7 +210,7 @@ testing = ["argcomplete", "attrs (>=19.2.0)", "hypothesis (>=3.56)", "mock", "no
 name = "pytest-black-ng"
 version = "0.4.1"
 description = "A pytest plugin to enable format checking with black"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5"
 files = [
@@ -227,7 +227,7 @@ toml = "*"
 name = "pytest-isort"
 version = "3.1.0"
 description = "py.test plugin to check import ordering using isort"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7,<4"
 files = [
@@ -243,7 +243,7 @@ pytest = ">=5.0"
 name = "pytest-ruff"
 version = "0.1.1"
 description = "pytest plugin to check ruff requirements."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
@@ -258,7 +258,7 @@ ruff = ">=0.0.242"
 name = "ruff"
 version = "0.1.1"
 description = "An extremely fast Python linter, written in Rust."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -285,7 +285,7 @@ files = [
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 files = [
@@ -297,7 +297,7 @@ files = [
 name = "tomli"
 version = "2.0.1"
 description = "A lil' TOML parser"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -309,7 +309,7 @@ files = [
 name = "typing-extensions"
 version = "4.8.0"
 description = "Backported and Experimental Type Hints for Python 3.8+"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.8"
 files = [
@@ -320,4 +320,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "3f828faee9feaea365a9d08c45cd630432a63a03e8ea785c8963ce3ccef85576"
+content-hash = "3b369eab8fc0ecf779ca7177c32f2a23a681b077757a5c5bc538b429df0cdc0d"
