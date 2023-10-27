@@ -1,12 +1,19 @@
-# Define here the models for your scraped items
-#
-# See documentation in:
-# https://docs.scrapy.org/en/latest/topics/items.html
-
 import scrapy
+from itemloaders.processors import MapCompose, Join, TakeFirst
 
 
-class ScrapingSiniestrosVialesItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class NewsItem(scrapy.Item):
+    titulo = scrapy.Field(input_processor=MapCompose(str.strip),
+                                output_processor=TakeFirst())
+    subtitulo = scrapy.Field(input_processor=MapCompose(str.strip),
+                                output_processor=TakeFirst())
+    url = scrapy.Field(input_processor=MapCompose(str.strip),
+                                output_processor=TakeFirst())
+    fecha = scrapy.Field(input_processor=MapCompose(str.strip),
+                                output_processor=TakeFirst())
+    cuerpo = scrapy.Field(input_processor=MapCompose(str.strip),
+                          output_processor=Join())
+    tags = scrapy.Field(input_processor=MapCompose(str.strip),
+                        output_processor=Join(","))
+    url_imagenes = scrapy.Field(input_processor=MapCompose(str.strip),
+                                output_processor=TakeFirst())

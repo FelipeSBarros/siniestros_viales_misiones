@@ -1,4 +1,7 @@
 import scrapy
+from scrapy.loader import ItemLoader
+
+from scraping_siniestros_viales.items import NewsItem
 
 
 class QuotesSpider(scrapy.Spider):
@@ -14,19 +17,20 @@ class QuotesSpider(scrapy.Spider):
         yield from response.follow_all(pagination_links, self.parse)
 
     def parse_news(self, response):
-        yield {
-            "Titulo": response.css("div.entry-header h1 ::text").get(),
-            "Subtitulo": response.css("div.entry-header h2 ::text").get(),
-            "URL": response.url,
-            "Fecha": response.css("div.entry-header div.jeg_meta_date a::text").get(),
-            "Cuerpo": response.css(
-                "div.entry-content div.content-inner p ::text"
-            ).getall(),
-            "Tags": response.css(
-                "div.entry-content div.content-inner div.jeg_post_tags a::text"
-            ).getall(),
-            "Imajes": [
+        loader = ItemLoader(item=NewsItem(), selector=response)
+        loader.add_css("titulo", "div.entry-header h1 ::text")
+        loader.add_css("subtitulo", "div.entry-header h2 ::text")
+        loader.add_value("url", response.url)
+        loader.add_css("fecha", "div.entry-header div.jeg_meta_date a::text")
+        loader.add_css("cuerpo", "div.entry-content div.content-inner p ::text")
+        loader.add_css(
+            "tags", "div.entry-content div.content-inner div.jeg_post_tags a::text"
+        )
+        loader.add_value(
+            "url_imagenes",
+            [
                 img.attrib["data-src"]
                 for img in response.css("div.jeg_inner_content img")
             ],
-        }
+        )
+        yield loader.load_item()
