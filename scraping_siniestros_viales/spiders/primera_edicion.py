@@ -6,7 +6,11 @@ from scraping_siniestros_viales.items import NewsItem
 
 class QuotesSpider(scrapy.Spider):
     name = "primera_edicion"
-    start_urls = ["https://www.primeraedicion.com.ar/?s=siniestro"]
+    start_urls = [
+        f"https://www.primeraedicion.com.ar/page/{i}/?s=siniestro"
+        for i in range(2, 236)
+    ]
+    start_urls.insert(0, "https://www.primeraedicion.com.ar/?s=siniestro")
 
     def parse(self, response):
         yield from response.follow_all(
