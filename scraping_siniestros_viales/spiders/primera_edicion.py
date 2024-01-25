@@ -8,7 +8,7 @@ class QuotesSpider(scrapy.Spider):
     name = "primera_edicion"
     start_urls = [
         f"https://www.primeraedicion.com.ar/page/{i}/?s=siniestro"
-        for i in range(2, 236)
+        for i in range(2, 197)
     ]
     start_urls.insert(0, "https://www.primeraedicion.com.ar/?s=siniestro")
 
