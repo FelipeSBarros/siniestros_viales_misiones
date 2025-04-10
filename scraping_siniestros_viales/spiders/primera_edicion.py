@@ -4,7 +4,7 @@ from scrapy.loader import ItemLoader
 from scraping_siniestros_viales.items import NewsItem
 
 
-class QuotesSpider(scrapy.Spider):
+class SiniestrosVialesSpider(scrapy.Spider):
     name = "primera_edicion"
     start_urls = [
         f"https://www.primeraedicion.com.ar/page/{i}/?s=siniestro"
