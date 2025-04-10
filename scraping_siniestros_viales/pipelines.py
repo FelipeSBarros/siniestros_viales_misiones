@@ -41,4 +41,5 @@ class ValidacionFechaPipeline:
         if fecha < self.fecha_inicial:
             raise DropItem("Fecha de la notícia es anterior a la fecha deseada")
         else:
+            adapter["fecha"] = fecha
             return item

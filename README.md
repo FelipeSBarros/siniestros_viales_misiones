@@ -1,4 +1,5 @@
 # Siniestros Viales en Misiones desde los diários
+Más informaciones, ver [Laboratório de Inteligencia Territorial](https://tusigyt.github.io/lit/)
 
 El objetivo de este repositorio es gestionar el codigo de raspaje de datos con [scrapy](https://docs.scrapy.org/) de reportajes periodísticos del diário de Misiones [Primera Edición](https://www.primeraedicion.com.ar/).
 
