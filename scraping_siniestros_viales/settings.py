@@ -71,8 +71,8 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   "scraping_siniestros_viales.pipelines.ScrapingSiniestrosVialesPipeline": 300,
-    "scraping_siniestros_viales.pipelines.ValidacionFechaPipeline":400,
+    "scraping_siniestros_viales.pipelines.ScrapingSiniestrosVialesPipeline": 300,
+    "scraping_siniestros_viales.pipelines.ValidacionFechaPipeline": 400,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
