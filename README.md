@@ -1,7 +1,7 @@
 # Siniestros Viales en Misiones desde los diários
 
-El objetivo de este repositorio es gestionar el codigo de raspaje de datos con [scrapy](https://docs.scrapy.org/) de
-reportajes periodísticos del diário de Misiones [Primera Edición](https://www.primeraedicion.com.ar/).
+El objetivo de este repositorio es gestionar el codigo de raspaje de datos con [scrapy](https://docs.scrapy.org/) de reportajes periodísticos del diário de Misiones [Primera Edición](https://www.primeraedicion.com.ar/).
+
 El resultado de dicho raspaje es un archivo `.csv` que contiene la siguiente información:
 
 - `titulo`: título del artículo
@@ -12,10 +12,7 @@ El resultado de dicho raspaje es un archivo `.csv` que contiene la siguiente inf
 - `tags`: etiquetas del artículo
 - `url_imagenes`: urls de las imágenes del artículo
 
-Los artículos raspados serán georreferenciados y analisados por estudiantes de
-la [Tecnicatura Universitária en Sistemas de Información Geográfica y Teledetección (TUSIGyT)](https://www.fcf.unam.edu.ar/carreras/tec-univ-sist-infor-geo-tele/)
-de
-la [Facultad de Ciencias Forestales (FCF)](https://www.fcf.unam.edu.ar/) de la Universidad Nacional de Misiones (UNaM);
+Los artículos raspados serán georreferenciados y analisados por estudiantes de la [Tecnicatura Universitária en Sistemas de Información Geográfica y Teledetección (TUSIGyT)](https://www.fcf.unam.edu.ar/carreras/tec-univ-sist-infor-geo-tele/) de la [Facultad de Ciencias Forestales (FCF)](https://www.fcf.unam.edu.ar/) de la Universidad Nacional de Misiones (UNaM);
 
 ## Resultados ya obtenidos
 
@@ -29,14 +26,9 @@ la [Facultad de Ciencias Forestales (FCF)](https://www.fcf.unam.edu.ar/) de la U
 ## Corriendo el raspador
 
 ```python
-scrapy
-crawl
-primera_edicion - o
-archivo.csv
+scrapy crawl primera_edicion - o archivo.csv
 ```
 
 ## Al respecto de las configuraciones
 
-Se deshabilitó la opción de seguir las autorizaciones de la página presentes en `robot.txt`, bien como se instaló [
-`scrapy-fake-useragent`](https://github.com/alecxe/scrapy-fake-useragent) para que siempre que la página retorne error
-403, se vuelva a ejecutar simulando un `agente` distinto;
+Se deshabilitó la opción de seguir las autorizaciones de la página presentes en `robot.txt`, bien como se instaló [`scrapy-fake-useragent`](https://github.com/alecxe/scrapy-fake-useragent) para que siempre que la página retorne error 403, se vuelva a ejecutar simulando un `agente` distinto;
