@@ -26,7 +26,7 @@ Los artículos raspados serán georreferenciados y analisados por estudiantes de
 ## Corriendo el raspador
 
 ```python
-scrapy crawl primera_edicion - o archivo.csv
+scrapy crawl primera_edicion -o ./results/primera_edicion_siniestros_viales_XXXX.csv
 ```
 
 ## Al respecto de las configuraciones
