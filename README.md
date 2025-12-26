@@ -26,13 +26,16 @@ Los artículos raspados serán georreferenciados y analisados por estudiantes de
 
 ## Corriendo el raspador
 
+- El parámetro `-a fecha_inicial` es obligatorio e informa la fecha inicial de la búsqueda. Notícias anteriores a dicha fecha serán desconsideradas;
+- El parámetro `-o nombre_archivo_resultado.csv` define el formato (`csv` o `json`) y nombre del archivo que alamcenará los resultados del raspador. Si no es inofmrado, el resultado será presentado en la pantalla;
+
 ```python
-scrapy crawl primera_edicion -o ./results/primera_edicion_siniestros_viales_XXXX.csv
+scrapy crawl primera_edicion -a fecha_inicial=2020-01-01 -o ./results/primera_edicion_siniestros_viales_XXXX.csv
 ```
 
 Para obtener el resultado en `json`:  
 ```python
-scrapy crawl primera_edicion -o ./results/primera_edicion_siniestros_viales_XXXX.json
+scrapy crawl primera_edicion -a fecha_inicial=2020-01-01 -o ./results/primera_edicion_siniestros_viales_XXXX.json
 ```
 
 ## Al respecto de las configuraciones

@@ -43,7 +43,7 @@ class ValidacionFechaPipeline:
 
         mes = MESES.get(mes.lower().strip(","))
         fecha = datetime(int(ano), mes, int(dia)).date()
-        if fecha < self.fecha_inicial:
+        if fecha < spider.fecha_inicial:
             raise DropItem("Fecha de la notícia es anterior a la fecha deseada")
         else:
             adapter["fecha"] = fecha

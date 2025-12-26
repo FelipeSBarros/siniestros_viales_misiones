@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import scrapy
 from scrapy.loader import ItemLoader
 
@@ -11,6 +13,16 @@ class SiniestrosVialesSpider(scrapy.Spider):
         for i in range(2, 197)
     ]
     start_urls.insert(0, "https://www.primeraedicion.com.ar/?s=siniestro")
+
+    def __init__(self, fecha_inicial=None, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        if fecha_inicial is None:
+            raise ValueError("Parámetro 'fecha_inicial' es obligatorio (YYYY-MM-DD)")
+
+        self.fecha_inicial = datetime.strptime(
+            fecha_inicial, "%Y-%m-%d"
+        ).date()
 
     def parse(self, response):
         yield from response.follow_all(
