@@ -2,6 +2,7 @@
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+import uuid
 from datetime import datetime
 
 from itemadapter import ItemAdapter
@@ -25,6 +26,10 @@ MESES = {
 
 class ScrapingSiniestrosVialesPipeline:
     def process_item(self, item, spider):
+        adapter = ItemAdapter(item)
+        url = adapter.get("url")
+        id = uuid.uuid5(uuid.NAMESPACE_URL, url)
+        adapter["id"] = str(id)
         return item
 
 

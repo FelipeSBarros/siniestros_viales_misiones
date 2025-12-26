@@ -3,6 +3,7 @@ from itemloaders.processors import Join, MapCompose, TakeFirst
 
 
 class NewsItem(scrapy.Item):
+    id = scrapy.Field()
     titulo = scrapy.Field(
         input_processor=MapCompose(str.strip), output_processor=TakeFirst()
     )

@@ -3,7 +3,7 @@ Más informaciones, ver [Laboratório de Inteligencia Territorial](https://tusig
 
 El objetivo de este repositorio es gestionar el codigo de raspaje de datos con [scrapy](https://docs.scrapy.org/) de reportajes periodísticos del diário de Misiones [Primera Edición](https://www.primeraedicion.com.ar/).
 
-El resultado de dicho raspaje es un archivo `.csv` que contiene la siguiente información:
+El resultado de dicho raspaje es un archivo `.csv` (o `json`, si deseado) que contiene las siguientes informaciones:
 
 - `titulo`: título del artículo
 - `subtitulo`: subtitulo del artículo
@@ -28,6 +28,11 @@ Los artículos raspados serán georreferenciados y analisados por estudiantes de
 
 ```python
 scrapy crawl primera_edicion -o ./results/primera_edicion_siniestros_viales_XXXX.csv
+```
+
+Para obtener el resultado en `json`:  
+```python
+scrapy crawl primera_edicion -o ./results/primera_edicion_siniestros_viales_XXXX.json
 ```
 
 ## Al respecto de las configuraciones
