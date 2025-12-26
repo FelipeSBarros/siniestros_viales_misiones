@@ -20,9 +20,7 @@ class SiniestrosVialesSpider(scrapy.Spider):
         if fecha_inicial is None:
             raise ValueError("Parámetro 'fecha_inicial' es obligatorio (YYYY-MM-DD)")
 
-        self.fecha_inicial = datetime.strptime(
-            fecha_inicial, "%Y-%m-%d"
-        ).date()
+        self.fecha_inicial = datetime.strptime(fecha_inicial, "%Y-%m-%d").date()
 
     def parse(self, response):
         yield from response.follow_all(
