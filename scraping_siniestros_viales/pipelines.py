@@ -7,6 +7,9 @@ from datetime import datetime
 
 from itemadapter import ItemAdapter
 from scrapy.exceptions import DropItem
+from sqlalchemy.orm import sessionmaker
+
+from scraping_siniestros_viales.models import db_connect, create_table, News
 
 MESES = {
     "enero": 1,
@@ -26,6 +29,8 @@ MESES = {
 
 class ScrapingSiniestrosVialesPipeline:
     def process_item(self, item, spider):
+        # if item is None:
+        #     raise DropItem("Item None descartado")
         adapter = ItemAdapter(item)
         url = adapter.get("url")
         id = uuid.uuid5(uuid.NAMESPACE_URL, url)
@@ -47,4 +52,58 @@ class ValidacionFechaPipeline:
             raise DropItem("Fecha de la notícia es anterior a la fecha deseada")
         else:
             adapter["fecha"] = fecha
+            return item
+
+
+class SaveNewsPipeline(object):
+    def __init__(self):
+        engine = db_connect()
+        create_table(engine)
+        self.Session = sessionmaker(bind=engine)
+
+    def process_item(self, item, spider):
+        session = self.Session()
+        news_table = News()
+        adapter = ItemAdapter(item)
+
+        news_table.id = adapter.get("id")
+        news_table.fecha = adapter.get("fecha")
+        news_table.titulo = adapter.get("titulo")
+        news_table.subtitulo = adapter.get("subtitulo")
+        news_table.cuerpo = adapter.get("cuerpo")
+        news_table.tags = adapter.get("tags")
+        news_table.url = adapter.get("url")
+        news_table.url_imagenes = adapter.get("url_imagenes")
+
+        try:
+            session.add(news_table)
+            session.commit()
+
+        except:
+            session.rollback()
+            raise
+
+        finally:
+            session.close()
+
+
+class DuplicateNewsPipeline(object):
+    def __init__(self):
+        """
+        Initializes database connection and sessionmaker.
+        Creates tables.
+        """
+        engine = db_connect()
+        create_table(engine)
+        self.Session = sessionmaker(bind=engine)
+
+    def process_item(self, item, spider):
+        session = self.Session()
+        adapter = ItemAdapter(item)
+        id_scrapped = adapter.get("id")
+        exist_new = session.query(News).filter_by(id=id_scrapped).first()
+        session.close()
+        if exist_new:  # the current quote exists
+            raise DropItem("Duplicate item found: %s" % item["id"])
+        else:
             return item

@@ -73,6 +73,8 @@ DOWNLOADER_MIDDLEWARES = {
 ITEM_PIPELINES = {
     "scraping_siniestros_viales.pipelines.ScrapingSiniestrosVialesPipeline": 300,
     "scraping_siniestros_viales.pipelines.ValidacionFechaPipeline": 400,
+    "scraping_siniestros_viales.pipelines.DuplicateNewsPipeline": 500,
+    "scraping_siniestros_viales.pipelines.SaveNewsPipeline": 600,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -100,3 +102,6 @@ ITEM_PIPELINES = {
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+# Database
+CONNECTION_STRING = "sqlite:///scrapy_siniestros_viales.db"
