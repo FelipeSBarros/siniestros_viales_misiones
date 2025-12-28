@@ -9,7 +9,7 @@ from itemadapter import ItemAdapter
 from scrapy.exceptions import DropItem
 from sqlalchemy.orm import sessionmaker
 
-from scraping_siniestros_viales.models import db_connect, create_table, News
+from scraping_siniestros_viales.models import News, create_table, db_connect
 
 MESES = {
     "enero": 1,

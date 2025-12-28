@@ -1,6 +1,5 @@
 from scrapy.utils.project import get_project_settings
-from sqlalchemy import Text, String
-from sqlalchemy import create_engine, Column
+from sqlalchemy import Column, String, Text, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
