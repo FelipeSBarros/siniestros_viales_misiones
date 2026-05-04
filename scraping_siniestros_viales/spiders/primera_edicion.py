@@ -42,9 +42,8 @@ class SiniestrosVialesSpider(scrapy.Spider):
         )
         loader.add_value(
             "url_imagenes",
-            [
-                img.attrib["data-src"]
-                for img in response.css("div.jeg_inner_content img")
-            ],
+            response.xpath(
+                "//div[contains(@class, 'jeg_inner_content')]//img/@src"
+            ).getall(),
         )
         yield loader.load_item()
